@@ -29,8 +29,8 @@ var getWizardsName = function () {
 
   for (var i = 0; i < wizLast.length; i++) {
     var combineName = wizFirst[Math.floor((Math.random() * 7) + 1)] + ' ' + wizLast[Math.floor((Math.random() * 7) + 1)];
-    wizard.name = combineName;
   }
+  return combineName;
 }
 
 var getWizardColor = function () {
@@ -43,7 +43,7 @@ var getWizardColor = function () {
     'rgb(0, 0, 0)'
   ]
 
-  wizard.coatColor = colors[Math.floor((Math.random() * 5) + 1)];
+  return colors[Math.floor((Math.random() * 5) + 1)];
 }
 
 var getEyeColor = function () {
@@ -55,21 +55,27 @@ var getEyeColor = function () {
     'green'
   ]
 
-  wizard.eyesColor = eyecolors[Math.floor((Math.random() * 4) + 1)];
+  return eyecolors[Math.floor((Math.random() * 4) + 1)];
 }
 
 var getRandomWizard = function () {
-  getWizardsName();
-  getWizardColor();
-  getEyeColor();
-}
+  return {
+  name: getWizardsName(),
+  coatColor: getWizardColor(),
+  eyesColor: getEyeColor()
+  }
+};
 
 var wizards = [];
 var wizard = {};
 
-getRandomWizard();
+for (var i = 0; i < 4; i++) {
+  wizards.push(getRandomWizard());
+}
 
-console.log(wizard);
+
+
+
 
 
 
