@@ -1,4 +1,6 @@
 "use strict";
+(function () {
+
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
@@ -192,7 +194,15 @@ for (var i = 0; i < 4; i++) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
 
   similarListElement.appendChild(wizardElement);
+};
+
+window.setup = {
+  setupClose: setupClose,
+  ESC_KEYCODE: ESC_KEYCODE,
+  ENTER_KEYCODE: ENTER_KEYCODE
 }
+
+})();
 
 
 

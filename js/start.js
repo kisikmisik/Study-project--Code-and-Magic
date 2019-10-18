@@ -1,3 +1,5 @@
+(function () {
+
 var CLOUD_WIDTH = 410;
 var CLOUD_HEIGHT = 270;
 var RESULT_WIDTH = 40;
@@ -58,6 +60,7 @@ window.renderStatistics = function(ctx, names, times) {
   getMaxTime();
   getColumns();
  }
+ })();
 
 
 
