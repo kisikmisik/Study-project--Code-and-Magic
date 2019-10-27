@@ -60,6 +60,7 @@ window.renderStatistics = function(ctx, names, times) {
   getMaxTime();
   getColumns();
  }
+
  })();
 
 
