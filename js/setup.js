@@ -98,6 +98,7 @@ setupClose.addEventListener('keydown', function (evt) {
   }
 });
 
+
 wizardCoat.addEventListener('click', function (evt) {
   var currentCoat = getRandomCoat();
   wizardCoat.style.fill = currentCoat;
@@ -131,15 +132,30 @@ var renderWizard = function (wizard) {
   return wizardElement;
 }
 
-var successHandler = function (wizards) {
+var render = function (data) {
   var fragment = document.createDocumentFragment();
 
-  for (var i = 0; i < 4; i++) {
-    fragment.appendChild(renderWizard(wizards[i]));
+  var takeNumber = data.length > 4 ? 4 : data.length;
+
+  for (var i = 0; i < takeNumber; i++) {
+    fragment.appendChild(renderWizard(data[i]));
   }
   similarListElement.appendChild(fragment);
 
   setup.querySelector('.setup-similar').classList.remove('hidden');
+}
+
+var wizardsArr = [];
+var coatColor = 'rgb(241, 43, 107)';
+
+var successHandler = function (wizards) {
+  wizardsArr = wizards;
+
+  var sameCoatWizards = wizardsArr.filter(function(it) {
+    return it.colorCoat === coatColor;
+  });
+  console.log(sameCoatWizards);
+  render(sameCoatWizards);
 };
 
 var errorHandler = function (errorMessage) {
